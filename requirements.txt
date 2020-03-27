@@ -1,0 +1,8 @@
+requests
+requests_cache
+bs4
+scipy
+matplotlib
+pandas
+tqdm
+git+git://github.com/aminnj/yahist.git#egg=yahist
