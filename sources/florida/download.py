@@ -12,9 +12,6 @@ import requests
 
 base_url = "https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Case_Line_Data/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=true&spatialRel=esriSpatialRelIntersects&outFields=County%2CAge%2CGender%2CJurisdiction%2CTravel_related%2COrigin%2CEDvisit%2CHospitalized%2CDied%2CContact%2CCase_%2CEventDate%2CObjectId&outSR=102100&resultOffset={offset}&resultRecordCount={count}"
 
-url = base_url.format(offset=0, count=10)
-r = requests.get(url)
-
 def fetch_df(url):
     r = requests.get(url)
     js = r.json()
