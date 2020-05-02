@@ -1,64 +1,21 @@
 #!/usr/bin/env sh
 
+
 mkdir -p data/states/
+function curl_zip() {
+    name=$1
+    outdir=$2
+    curl -s https://static.kinsahealth.com/$name.json | gzip -c > $outdir/$name.json.gz
+}
 
 
-(cd data / && curl -O https://static.kinsahealth.com/weather_data.json)
-(cd data / && curl -O https://static.kinsahealth.com/anomaly_map.json)
-(cd data / && curl -O https://static.kinsahealth.com/zip_mapping.json)
-(cd data / && curl -O https://static.kinsahealth.com/US_data.json)
+curl_zip weather_data data/
+curl_zip anomaly_map data/
+curl_zip zip_mapping data/
+curl_zip US_data data/
 
-states="
-AL
-AZ
-AR
-CA
-CO
-CT
-DE
-FL
-GA
-ID
-IL
-IN
-IA
-KS
-KY
-LA
-ME
-MD
-MA
-MI
-MN
-MS
-MO
-MT
-NE
-NV
-NH
-NJ
-NM
-NY
-NC
-ND
-OH
-OK
-OR
-PA
-RI
-SC
-SD
-TN
-TX
-UT
-VT
-VA
-WA
-WV
-WI
-WY
-"
+states="AL AZ AR CA CO CT DE FL GA ID IL IN IA KS KY LA ME MD MA MI MN MS MO MT NE NV NH NJ NM NY NC ND OH OK OR PA RI SC SD TN TX UT VT VA WA WV WI WY"
 for state in $states ; do
     echo $state
-    (cd data/states/ && curl -O -s https://static.kinsahealth.com/${state}_data.json)
+    curl_zip ${state}_data data/states/
 done

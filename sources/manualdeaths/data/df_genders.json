@@ -127,14 +127,14 @@
     },
     {
         "gender":"M",
-        "cases":"6871",
+        "cases":"1339",
         "deaths":"25",
         "state":"IN",
         "date":"03-31-20"
     },
     {
         "gender":"F",
-        "cases":"7504",
+        "cases":"1226",
         "deaths":"40",
         "state":"IN",
         "date":"03-31-20"
@@ -152,6 +152,20 @@
         "deaths":"",
         "state":"KS",
         "date":"03-30-20"
+    },
+    {
+        "gender":"M",
+        "cases":"3733",
+        "deaths":"58",
+        "state":"MA",
+        "date":"04-01-20"
+    },
+    {
+        "gender":"F",
+        "cases":"3959",
+        "deaths":"53",
+        "state":"MA",
+        "date":"04-01-20"
     },
     {
         "gender":"F",

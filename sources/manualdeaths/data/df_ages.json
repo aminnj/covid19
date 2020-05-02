@@ -277,56 +277,56 @@
         "deaths":"0",
         "state":"FL",
         "date":"03-31-20",
-        "age":"10-29"
+        "age":"10-19"
     },
     {
         "cases":"987",
         "deaths":"1",
         "state":"FL",
         "date":"03-31-20",
-        "age":"20-39"
+        "age":"20-29"
     },
     {
         "cases":"1189",
         "deaths":"2",
         "state":"FL",
         "date":"03-31-20",
-        "age":"30-49"
+        "age":"30-39"
     },
     {
         "cases":"1266",
         "deaths":"2",
         "state":"FL",
         "date":"03-31-20",
-        "age":"40-59"
+        "age":"40-49"
     },
     {
         "cases":"1402",
         "deaths":"5",
         "state":"FL",
         "date":"03-31-20",
-        "age":"50-69"
+        "age":"50-59"
     },
     {
         "cases":"1138",
         "deaths":"21",
         "state":"FL",
         "date":"03-31-20",
-        "age":"60-79"
+        "age":"60-69"
     },
     {
         "cases":"841",
         "deaths":"30",
         "state":"FL",
         "date":"03-31-20",
-        "age":"70-89"
+        "age":"70-79"
     },
     {
         "cases":"386",
         "deaths":"25",
         "state":"FL",
         "date":"03-31-20",
-        "age":"80-99"
+        "age":"80-89"
     },
     {
         "cases":"84",
@@ -392,49 +392,56 @@
         "age":">=50"
     },
     {
-        "cases":"201",
+        "cases":"36",
         "deaths":"0",
         "state":"IN",
         "date":"03-31-20",
         "age":"0-19"
     },
     {
-        "cases":"1524",
+        "cases":"272",
         "deaths":"0",
         "state":"IN",
         "date":"03-31-20",
         "age":"20-29"
     },
     {
-        "cases":"2056",
+        "cases":"367",
         "deaths":"1",
         "state":"IN",
         "date":"03-31-20",
         "age":"30-39"
     },
     {
-        "cases":"2372",
+        "cases":"423",
         "deaths":"0",
         "state":"IN",
         "date":"03-31-20",
         "age":"40-49"
     },
     {
-        "cases":"2516",
-        "deaths":"13",
+        "cases":"503",
+        "deaths":"7",
         "state":"IN",
         "date":"03-31-20",
         "age":"50-59"
     },
     {
-        "cases":"1754",
-        "deaths":"20",
+        "cases":"449",
+        "deaths":"13",
         "state":"IN",
         "date":"03-31-20",
         "age":"60-69"
     },
     {
-        "cases":"1136",
+        "cases":"313",
+        "deaths":"20",
+        "state":"IN",
+        "date":"03-31-20",
+        "age":"70-79"
+    },
+    {
+        "cases":"203",
         "deaths":"23",
         "state":"IN",
         "date":"03-31-20",
@@ -488,20 +495,6 @@
         "state":"MA",
         "date":"04-01-20",
         "age":">=70"
-    },
-    {
-        "cases":"3733",
-        "deaths":"58",
-        "state":"MA",
-        "date":"04-01-20",
-        "age":"M"
-    },
-    {
-        "cases":"3959",
-        "deaths":"53",
-        "state":"MA",
-        "date":"04-01-20",
-        "age":"F"
     },
     {
         "cases":"6",
@@ -777,50 +770,50 @@
         "age":">=80"
     },
     {
-        "cases":"19",
+        "cases":"22",
         "deaths":"0",
         "state":"MS",
         "date":"04-01-20",
         "age":"0-17"
     },
     {
-        "cases":"135",
+        "cases":"143",
         "deaths":"0",
         "state":"MS",
         "date":"04-01-20",
         "age":"18-29"
     },
     {
-        "cases":"160",
+        "cases":"171",
         "deaths":"1",
         "state":"MS",
         "date":"04-01-20",
         "age":"30-39"
     },
     {
-        "cases":"208",
+        "cases":"229",
         "deaths":"2",
         "state":"MS",
         "date":"04-01-20",
-        "age":"40-59"
+        "age":"40-49"
     },
     {
-        "cases":"190",
+        "cases":"206",
         "deaths":"1",
         "state":"MS",
         "date":"04-01-20",
         "age":"50-59"
     },
     {
-        "cases":"196",
+        "cases":"226",
         "deaths":"5",
         "state":"MS",
         "date":"04-01-20",
         "age":"60-69"
     },
     {
-        "cases":"165",
-        "deaths":"13",
+        "cases":"179",
+        "deaths":"17",
         "state":"MS",
         "date":"04-01-20",
         "age":">=70"
