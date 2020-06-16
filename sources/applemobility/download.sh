@@ -12,4 +12,10 @@ mkdir -p data/
 # curl -s "https://covid19-static.cdn-apple.com/covid19-mobility-data/2009HotfixDev13/v3/en-us/applemobilitytrends-2020-05-29.csv" | gzip -c > data/data.csv.gz
 # curl -s "https://covid19-static.cdn-apple.com/covid19-mobility-data/2009HotfixDev23/v3/en-us/applemobilitytrends-2020-06-06.csv" | gzip -c > data/data.csv.gz
 
-curl -s "https://covid19-static.cdn-apple.com/covid19-mobility-data/current/v3/en-us/applemobilitytrends.json" | gzip -c > data/data.json.gz
+baseurl="https://covid19-static.cdn-apple.com/covid19-mobility-data/current/v3/"
+jsoninfo=$(curl -s "$baseurl/index.json")
+csvpath=$(echo $jsoninfo | python -c 'import sys; import json; print(json.loads(sys.stdin.readline())["regions"]["en-us"]["csvPath"])')
+url="$baseurl/$csvpath"
+curl -s "$url" | gzip -c > data/data.csv.gz
+
+# curl -s "https://covid19-static.cdn-apple.com/covid19-mobility-data/current/v3/en-us/applemobilitytrends.json" | gzip -c > data/data.json.gz
