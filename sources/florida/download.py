@@ -7,7 +7,7 @@ import pandas as pd
 
 import requests
 import requests_cache
-# requests_cache.install_cache("cache")
+requests_cache.install_cache("cache")
 
 def get_df1():
     # go to https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429/
@@ -43,16 +43,28 @@ def get_df2():
     r = requests.get("https://hub.arcgis.com/datasets/FDOH::florida-covid19-case-line-data")
     code = re.search(r"rest/content/items/[a-z0-9]+/", r.content.decode())[0].split("/")[-2]
     url = f"https://opendata.arcgis.com/datasets/{code}_0.csv"
+    print("[!] url overriden after visiting page and copying by hand.")
+    url = "https://opendata.arcgis.com/datasets/37abda537d17458bae6677b8ab75fcb9_0.csv"
     print(url)
     return pd.read_csv(url)
 
-# df = get_df2()
-df = get_df1()
+df = get_df2()
+# df = get_df1()
 
 # df = df.drop_duplicates("OBJECTID")
 # df.columns = df.columns.str.rstrip("_").str.lower()
 df.columns = df.columns.str.lower()
+print(df.columns)
+print(df.head())
+print(df.shape)
+# print(df["fid"])
+# df = df.drop_duplicates("objectid")
+# df = df.drop(["objectid","origin","travel_related","contact","jurisdiction"],axis=1)
+# df = df.drop_duplicates("objectid")
+# df = df.drop_duplicates("fid")
 df = df.drop_duplicates("objectid")
+# df = df.drop(["objectid","origin","travel_related","contact","jurisdiction"],axis=1)
+# df = df.drop(["fid","origin","travel_related","contact","jurisdiction"],axis=1)
 df = df.drop(["objectid","origin","travel_related","contact","jurisdiction"],axis=1)
 
 # print(df["case"])
