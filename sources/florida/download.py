@@ -7,13 +7,14 @@ import pandas as pd
 
 import requests
 import requests_cache
-requests_cache.install_cache("cache")
+requests_cache.install_cache("cache",expire_after=24*60*60)
 
 def get_df1():
     # go to https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429/
     # click triple lines on the top right > data navigator > query with no selections (can only get 2k at a time)
 
-    base_url = "https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Case_Line_Data/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&outFields=*&outSR=102100&resultOffset={offset}&resultRecordCount={count}"
+    # base_url = "https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Case_Line_Data/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&outFields=*&outSR=102100&resultOffset={offset}&resultRecordCount={count}"
+    base_url = "https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Case_Line_Data_NEW/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&outFields=*&resultOffset={offset}&resultRecordCount={count}"
     # base_url = "https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Case_Line_Data/FeatureServer/0/query?outFields=*&returnGeometry=false&resultOffset=70&resultRecordCount=10&f=json&where=1%3D1"
     # base_url = "https://opendata.arcgis.com/datasets/8ec01ce7236d4f20acf96371a6f4c0b7_0/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json&resultOffset={offset}&resultRecordCount={count}"
 
@@ -48,8 +49,8 @@ def get_df2():
     print(url)
     return pd.read_csv(url)
 
-df = get_df2()
-# df = get_df1()
+# df = get_df2()
+df = get_df1()
 
 # df = df.drop_duplicates("OBJECTID")
 # df.columns = df.columns.str.rstrip("_").str.lower()
