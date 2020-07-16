@@ -66,7 +66,8 @@ print(df.shape)
 df = df.drop_duplicates("objectid")
 # df = df.drop(["objectid","origin","travel_related","contact","jurisdiction"],axis=1)
 # df = df.drop(["fid","origin","travel_related","contact","jurisdiction"],axis=1)
-df = df.drop(["objectid","origin","travel_related","contact","jurisdiction"],axis=1)
+# df = df.drop(["objectid","origin","travel_related","contact","jurisdiction"],axis=1)
+df = df.drop(["objectid"],axis=1)
 
 # print(df["case"])
 # df["case"] = df["case"].str.split().str[0]

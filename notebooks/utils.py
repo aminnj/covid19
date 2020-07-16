@@ -72,7 +72,8 @@ def load_df_florida():
     """
 
     df = pd.read_json("../sources/florida/data/data.json.gz")
-    df = df.drop(["edvisit","county","age_group","chartdate","case","case_"],axis=1, errors="ignore")
+    # df = df.drop(["edvisit","county","age_group","chartdate","case","case_"],axis=1, errors="ignore")
+    df = df.drop(["age_group","chartdate","case","case_"],axis=1, errors="ignore")
     df = df.rename({"case1":"case"},axis=1)
 
     df["died"] = df["died"].map({"Yes":True,"NA":False}).fillna(False)
@@ -81,15 +82,16 @@ def load_df_florida():
     df = df[~df["age"].isna()]
     df = df[df["gender"] != "Unknown"]
     df["gender"] = df["gender"].str[0]
-    # df["age"] = df["age"].astype(int)
+    df["age"] = df["age"].astype(int)
 
     for k in ["case","eventdate"]:
-        df[k] = pd.to_datetime(df[k].str.split(" ",1).str[0])
-    #     df[k] = pd.to_datetime(df[k], unit="ms")
+        try:
+            df[k] = pd.to_datetime(df[k].str.split(" ",1).str[0])
+        except:
+            df[k] = pd.to_datetime(df[k], unit="ms")
     df["known_status"] = (df["hospitalized"]=="YES") | (df["hospitalized"]=="NO")
 
     return df
-
 
 def load_df_googlemobility():
     """
