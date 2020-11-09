@@ -2,12 +2,27 @@
 
 import os
 import re
+import sys
 
 import pandas as pd
 
 import requests
 import requests_cache
 requests_cache.install_cache("cache",expire_after=24*60*60)
+
+from requests_cache import CachedSession
+
+# url = "https://services1.arcgis.com/CY1LXxl9zlJeBuRZ/arcgis/rest/services/Florida_COVID19_Case_Line_Data_NEW/FeatureServer/0/query?f=json&where=1%3D1&returnGeometry=false&outFields=*&resultOffset=564000&resultRecordCount=2000"
+# r = requests.get(url)
+# print(r.from_cache)
+# js = r.json()
+# print(js)
+# s = CachedSession()
+# with s.cache_disabled():
+#     r = s.get(url)
+#     js = r.json()
+#     print(js)
+# sys.exit()
 
 def get_df1():
     # go to https://experience.arcgis.com/experience/96dd742462124fa0b38ddedb9b25e429/
@@ -21,6 +36,11 @@ def get_df1():
     def fetch_df(url):
         r = requests.get(url)
         js = r.json()
+        if "features" not in js:
+            s = CachedSession()
+            with s.cache_disabled():
+                r = s.get(url)
+                js = r.json()
         features = [feature["attributes"] for feature in js["features"]]
         df = pd.DataFrame(features)
         return df
